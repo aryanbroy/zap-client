@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
@@ -24,15 +24,25 @@ export function LoginForm({
               </div>
               <span className="sr-only">Acme Inc.</span>
             </a>
-            <h1 className="text-xl font-bold">Welcome to Acme Inc.</h1>
+            <h1 className="text-xl font-bold">Create your account</h1>
             <div className="text-center text-sm">
-              Don&apos;t have an account?{"  "}
-              <a href="/signup" className="underline underline-offset-4">
-                Sign up
+              Already have an account?{" "}
+              <a href="/login" className="underline underline-offset-4">
+                Login
               </a>
             </div>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
+            <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid gap-2">
+                <Label htmlFor="firstName">First Name</Label>
+                <Input id="firstName" type="text" placeholder="John" required />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="lastName">Last Name</Label>
+                <Input id="lastName" type="text" placeholder="Doe" required />
+              </div>
+            </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -42,8 +52,16 @@ export function LoginForm({
                 required
               />
             </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" required />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input id="confirmPassword" type="password" required />
+            </div>
             <Button type="submit" className="w-full">
-              Login
+              Sign Up
             </Button>
           </div>
           <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
@@ -73,8 +91,8 @@ export function LoginForm({
           </div>
         </div>
       </form>
-      <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary  ">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+      <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
+        By clicking sign up, you agree to our <a href="#">Terms of Service</a>{" "}
         and <a href="#">Privacy Policy</a>.
       </div>
     </div>

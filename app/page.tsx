@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -11,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const appImages: { [key: number]: string } = {
   1: "/gmail.png", // done
@@ -22,6 +25,7 @@ const appImages: { [key: number]: string } = {
 };
 
 export default function LandingPage() {
+  const router = useRouter();
   return (
     <div className="flex min-h-screen flex-col">
       <header className="px-8 lg:px-6 h-16 flex items-center">
@@ -80,7 +84,12 @@ export default function LandingPage() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">
+                  <Button
+                    size="lg"
+                    onClick={() => {
+                      router.push("/login");
+                    }}
+                  >
                     Get Started Free
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

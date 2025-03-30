@@ -14,14 +14,16 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const appImages: { [key: number]: string } = {
-  1: "/gmail.png", // done
-  2: "/sheets.png", // done
-  3: "/drive.png", // done
-  4: "/forms.png", // done
-  5: "/photos.png", // done
-  6: "/docs.png", // done
+  1: "/gmail.png",
+  2: "/sheets.png",
+  3: "/drive.png",
+  4: "/forms.png",
+  5: "/photos.png",
+  6: "/docs.png",
 };
 
 export default function LandingPage() {

@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div>
+    <div className="border border-b-2">
       <header className="px-8 lg:px-6 h-16 flex items-center">
         <Link className="flex items-center justify-center" href="/">
           <Zap className="h-6 w-6 text-primary" />

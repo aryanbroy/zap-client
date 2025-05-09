@@ -11,14 +11,15 @@ export async function middleware(request: NextRequest) {
     console.log("no token found, user stays logged out");
   }
   const isLoggedIn = !!token;
-  const url = request.url;
+  const { pathname } = request.nextUrl;
   console.log("User logged in: ", isLoggedIn);
 
-  if (isLoggedIn && (url.includes("/login") || url.includes("/signup"))) {
+  if (isLoggedIn && (pathname === "/login" || pathname === "/signup")) {
     return NextResponse.redirect(new URL("/app", request.url));
   }
-  if (!isLoggedIn) {
-    return NextResponse.redirect(new URL("/", request.url));
+
+  if (!isLoggedIn && pathname.startsWith("/app")) {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
   return NextResponse.next();
